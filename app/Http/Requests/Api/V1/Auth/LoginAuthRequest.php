@@ -14,7 +14,9 @@ final class LoginAuthRequest extends BaseRequest
     public function rules(): array
     {
         return [
-
+            'email' => 'required|email|max:255',
+            'password' => 'required|string|min:6|max:255',
+            'token_name' => 'required|string|max:255',
         ];
     }
 }

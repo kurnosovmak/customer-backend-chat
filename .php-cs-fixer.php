@@ -15,6 +15,7 @@ $rules = [
     'blank_line_before_statement' => [
         'statements' => ['return'],
     ],
+    'no_unused_imports' => true,
     'braces' => true,
     'cast_spaces' => true,
     'class_attributes_separation' => [

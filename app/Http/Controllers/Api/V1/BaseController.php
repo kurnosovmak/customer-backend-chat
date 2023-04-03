@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
-class BaseController extends Controller
+abstract class BaseController extends Controller
 {
     protected const DEFAULT_HEADERS = [];
 
@@ -21,13 +21,16 @@ class BaseController extends Controller
     protected function success(?array $data = null, int $status = Response::HTTP_OK, array $headers = []): JsonResponse
     {
         return new JsonResponse(
-            data: $data,
+            data: [
+                'status' => true,
+                'data' => $data,
+            ],
             status: $status,
             headers: [
                 ...$this->getHeaders(),
                 $headers,
             ],
-            json: true
+            json: false
         );
     }
 
